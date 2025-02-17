@@ -1,11 +1,18 @@
+def search(lst, key):
 
-def monotonic(lst):
-    """Return True if lst is monotonic; return False, otherwise."""
-    #
-    # YOUR IMPLEMENTATION GOES HERE
-    #
+    assert monotonic(lst), "The list is not sorted"
 
-#
-# Feel free to replace these comments with
-# code that tests your function monotonic.
-#
+    low = 0
+    mid = len(lst) // 2
+    high = len(lst) - 1
+
+    while (high >= low):
+        mid = (high + low) // 2
+        if (lst[mid] < key):
+          low = mid + 1
+        elif (lst[mid] > key):
+            high = mid - 1
+        else:
+            return mid
+
+    return -1
